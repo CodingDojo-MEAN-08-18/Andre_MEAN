@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ninja Class III</title>
+    <script text="text/javascript">
+        class Ninja {
+            constructor(name) {
+                this.name = name;
+                this.health = 100;
+                this.speed = 3;
+                this.strength = 3;
+            }
+
+            showStats() {
+                console.log('Name: ' + this.name);
+                console.log('Health: ' + this.health);
+                console.log('Speed: ' + this.speed);
+                console.log('Strength: ' + this.strength);
+            }
+
+            sayName() {
+                console.log("My name is " + this.name);
+            }
+
+            drinkSake() {
+                this.health += 10;
+                return this;
+            }
+
+        }
+
+        class Sensi extends Ninja {
+            constructor(name) {
+                super(name);
+                this.health = 200
+                this.speed = 10
+                this.strength = 10
+                this.wisdom = 10
+            }
+
+            speakWisdom() {
+                super.drinkSake();
+                console.log("Life is ten percent what happens to you and ninety percent how you respond to it.")
+            }
+        }
+
+        const newSensi = new Sensi("Miyagi");
+        newSensi.showStats();
+        newSensi.speakWisdom();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

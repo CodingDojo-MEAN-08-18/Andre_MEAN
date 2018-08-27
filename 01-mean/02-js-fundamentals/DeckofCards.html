@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Deck of Cards</title>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script text="text/javascript">
+        class Cards {
+            constructor() {
+                this.suits = ['Spades', 'Diamonds', 'Hearts', 'Clubs'];
+                this.numerical = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+                this.string = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King'];
+            }
+
+            showCard() {
+                const suit = Math.floor(Math.random() * 4);
+                const number = Math.floor(Math.random() * 13);
+
+                console.log('You drew the ${this.string[number]} of ${this.suits[suit]}');
+
+            }
+        }
+
+        var card11 = new Cards();
+
+        //     sayName() {
+        //         console.log("My name is " + this.name);
+        //     }
+
+        //     drinkSake() {
+        //         this.health += 10;
+        //         return this;
+        //     }
+
+        // }
+
+        // class Sensi extends Ninja {
+        //     constructor(name) {
+        //         super(name);
+        //         this.health = 200
+        //         this.speed = 10
+        //         this.strength = 10
+        //         this.wisdom = 10
+        //     }
+
+        //     speakWisdom() {
+        //         super.drinkSake();
+        //         console.log("Life is ten percent what happens to you and ninety percent how you respond to it.")
+        //     }
+        // }
+
+        // const newSensi = new Sensi("Miyagi");
+        // newSensi.showStats();
+        // newSensi.speakWisdom();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
