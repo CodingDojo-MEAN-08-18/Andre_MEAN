@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Quoting Dojo</title>
+</head>
+
+<body>
+    <h1>Here Are Some Awesome Quotes!</h1>
+    <% for (var quotes of quote){ %>
+        <p>"
+            <%= quote.quote %>"</p>
+        <p>
+            <%= quote.name %> at
+                <%= quote.createdAt %>
+        </p>
+        <% } %>
+</body>
+
+</html>
