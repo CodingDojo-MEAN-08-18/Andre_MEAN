@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Group Chat</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script type='text/javascript' src='/socket.io/socket.io.js'></script>
+    <script type='text/javascript'>
+        $(document).ready(function() {
+            var socket = io.connect();
+            var currentUser;
+
+            const newUser = function() {
+                const name = prompt('Your name:');
+                socket.emit('new', {
+                    user: name
+                });
+            };
+
+            newUser();
+
+            socket.on('userNotAvailable', function(data) {
+                $('#error').html(data.error)
+                newUser();
+            });
+
+            socket.on('loadMessages', function(data) {
+                $('#error').html(" ");
+                currentUser = data.currUser;
+                var messages = data.mess;
+                var list = '';
+                for (let x = 0; x < mess.length; x++) {
+                    list += '<p>' + mess[x].name + ': ' + mess[x].message + '<p>';
+                }
+                $('#board').append(list);
+            });
+
+            $('#postMessage').submit(function() {
+                socket.emit('newmessage', {
+                    message: $('#message').val(),
+                    user: currentUser
+                });
+                $('#message').val('');
+                return false;
+            });
+
+            socket.on('newPost', function(data) {
+                $('#board').append('<p>' + data.user + ': ' + data.newmessage + '<p>');
+            });
+
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id='error'></div>
+    <h3>Conversation Board</h3>
+    <div id="board"></div>
+    <form id='postMessage'>
+        <input type="text" id='message'>
+        <input type="submit" value='Enter'>
+    </form>
+</body>
+
+</html>

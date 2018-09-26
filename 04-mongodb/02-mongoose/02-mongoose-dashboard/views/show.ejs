@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="/jquery.min.js"></script>
+
+    <title>Mongoose Dashboard</title>
+</head>
+
+<body>
+    <h1>Wolf PACK INFO</h1>
+
+    <% if (Wolf) { %>
+        <h3>Wolf Info</h3>
+        <p>Name:
+            <% Wolf.name %>
+        </p>
+        <p>Age:
+            <% Wolf.age %>
+        </p>
+        <p>Mange?
+            <% if (Wolf.mange == 'yes') {%> Yes!
+                <% } else { %> No
+                    <% } %>
+        </p>
+
+        <p><a href="/">Back</a>
+            <a href="/Wolves/edit/<%= Wolf._id %>">Edit Wolf</a>
+            <form method="post" action="/Wolves/destroy/<%= Wolf._id %>">
+                <input type="submit" value="Delete this Wolf">
+            </form>
+        </p>
+        <% } %>
+</body>
+
+</html>

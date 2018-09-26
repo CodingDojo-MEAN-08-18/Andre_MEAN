@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>MessageBoard</title>
+</head>
+
+<body>
+    <h1>Dojo MessageBoard</h1>
+
+    <form method="POST" action="/message">
+        <p>Name: <input type="text" name='name'></p>
+        <p>Message: <textarea name="message" rows="5"></textarea></p>
+        <p><input type="submit" value="Post"></p>
+    </form>
+
+    <% for (const x of messages) { %>
+        <h3>Name:
+            <%= x.name %>
+        </h3>
+        <h4>Message:
+            <%= x.message %>
+        </h4>
+
+        <% for (const y of x._comments) { %>
+            <p>
+                Name:
+                <%= y.name %>
+                    <p>
+                        <%= y.comment %>
+                    </p>
+            </p>
+            <% } %>
+
+
+                <form method="post" action="/comment">
+                    <input type="hidden" name="id" value="<%= x._id %>">
+
+                    <p>
+                        Name:
+                        <br><input type="text" name="name">
+                    </p>
+                    <p>
+                        Comment:
+                        <p><textarea name="comment" rows="3"></textarea></p>
+                    </p>
+                    <p>
+                        <input type="submit" value="Comment">
+                    </p>
+                </form>
+
+                <% } %>
+
+</body>
+
+</html>

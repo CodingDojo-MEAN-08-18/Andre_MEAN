@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="/jquery.min.js"></script>
+
+    <title>Mongoose Dashboard</title>
+</head>
+
+<body>
+    <h1>Wolves</h1>
+
+    <div>
+        <% if (Wolves) { %>
+            <p>Click Wolf's Name To Edit</p>
+            <ul>
+                <% for (var x in Wolves) { %>
+                    <li>
+                        <a href="Wolves/<%= Wolves[x]._id %>">
+                            <%= Wolves[x].name %>
+                        </a>,
+                        <%= Wolves[x].age %> years old ...
+                            <% if (Wolves[x].mange == 'yes') { %> Stay Away from him!!
+                                <% } else { %> Not that bad... Hopefully he wont eat you.
+                                    <% } %>
+                    </li>
+                    <% } %>
+            </ul>
+            <% } %>
+    </div>
+    <p><a href="/new">Add a new Wolf</a></p>
+    </div>
+</body>
+
+</html>
