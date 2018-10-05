@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <title>Trivia</title>
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#button').click(function() {
+                $.get("https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=boolean", displayX)
+
+            });
+
+            function displayX(data) {
+                var results = data.results;
+                for (var i = 0; i < data.results; i++) {
+                    $('h3').append(results[i]);
+                }
+                console.log(data);
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <button id="button">Press Me</button>
+
+</body>
+
+</html>

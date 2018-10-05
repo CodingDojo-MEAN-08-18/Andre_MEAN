@@ -2,7 +2,7 @@ const tasks = require('./../controllers/tasks.js');
 
 module.exports = function(app) {
     app.get('/tasks', function(req, res) {
-        tasks.getAll(req, res);
+        tasks.getTasks(req, res);
     });
 
     app.get('/tasks/:id', function(req, res) {
@@ -14,7 +14,7 @@ module.exports = function(app) {
     });
 
     app.post('/tasks', function(req, res) {
-        tasks.newTask(req, res);
+        tasks.newTasks(req, res);
     });
 
     app.delete('/tasks/:id', function(req, res) {

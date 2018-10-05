@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Task = mongoose.model('Task');
 
 module.exports = {
-    getAll: function(req, res) {
+    getTasks: function(req, res) {
         Task.find({}, function(err, tasks) {
             if (err) {
                 console.log(err);
